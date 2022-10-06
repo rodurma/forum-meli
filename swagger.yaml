@@ -1,81 +1,128 @@
-openapi: '3.0.2'
-info:
-  title: Mercado Livre API
-  description: Documentação não oficial da API do Mercado Livre
-  version: '1.0'
-servers:
-  - url: https://api.mercadolibre.com
-
-
-components:
-  securitySchemes:
-    "Access Token":
-      type: http
-      scheme: bearer
-paths:
-  /items/{code}:
-    get:
-      tags:
-        - items
-      description: 'Busca detalhes de um item'
-      parameters:
-        - name: code
-          in: path
-          description: Código do item
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-  /items/{code}/variations:
-    get:
-      tags:
-        - items
-      description: 'Variações de um item'
-      parameters:
-        - name: code
-          in: path
-          description: Código do item
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-  /items/{code}/variations/{variationId}:
-    get:
-      tags:
-        - items
-      description: 'Detalhes da variação de um item'
-      parameters:
-        - name: code
-          in: path
-          description: Código do item
-          required: true
-          schema:
-            type: string
-        - name: variationId
-          in: path
-          description: Id da variação
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: OK
-  /items/{code}/description:
-    get:
-      tags:
-        - items
-      description: 'Descrição de um item'
-      parameters:
-        - name: code
-          in: path
-          description: Código do item
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Mercado Livre API",
+    "description": "Documentação não oficial da API do Mercado Livre",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.mercadolibre.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "AccessToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "paths": {
+    "/items/{code}": {
+      "get": {
+        "tags": [
+          "items"
+        ],
+        "description": "Busca detalhes de um item",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Código do item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/items/{code}/variations": {
+      "get": {
+        "tags": [
+          "items"
+        ],
+        "description": "Variações de um item",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Código do item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/items/{code}/variations/{variationId}": {
+      "get": {
+        "tags": [
+          "items"
+        ],
+        "description": "Detalhes da variação de um item",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Código do item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variationId",
+            "in": "path",
+            "description": "Id da variação",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/items/{code}/description": {
+      "get": {
+        "tags": [
+          "items"
+        ],
+        "description": "Descrição de um item",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Código do item",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
